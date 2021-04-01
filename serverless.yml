@@ -2,8 +2,9 @@ service: nestjs-graphql-serverless
 
 provider:
   name: aws
-  runtime: nodejs8.10
-  stage: dev
+  runtime: nodejs12.x
+  region: ap-northeast-2
+  stage: staging
   profile: default # Config your AWS Profile
   environment: # Service wide environment variables
     NODE_ENV: production
@@ -26,5 +27,5 @@ functions:
     events:
       - http:
           cors: true
-          path: '/{proxy+}'
+          path: "/{proxy+}"
           method: any

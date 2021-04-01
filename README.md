@@ -2,25 +2,25 @@
 
 Boilerplate for using NestJS with GraphQL (Code-First) on serverless environment (AWS Lambda)
 
-Follow the discussion: https://github.com/nestjs/docs.nestjs.com/issues/96
+Follow his repository : <https://github.com/lnmunhoz/nestjs-graphql-serverless>
 
 ## Installation
 
 ```bash
-$ yarn
+npm install
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ yarn start:dev
+$ npm run start:dev
 
 # serverless-offline
-$ yarn start:sls
+$ npm run start:offline
 
 # deploy
-$ yarn deploy:sls
+$ npm run deploy:sls
 ```
 
 ## Notes
