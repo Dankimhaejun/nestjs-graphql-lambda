@@ -15,7 +15,7 @@
     "copyfiles": "cp src/schema.gql dist/schema.gql",
     "postbuild": "npm run copyfiles",
     "deploy:sls": "npm run build && sls deploy",
-    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint": "eslint .",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -39,8 +39,7 @@
     "graphql-tools": "^7.0.4",
     "reflect-metadata": "0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.7",
-    "type-graphql": "^1.1.1"
+    "rxjs": "^6.6.7"
   },
   "devDependencies": {
     "@nestjs/testing": "^7.6.15",
@@ -50,6 +49,11 @@
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
     "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "serverless": "^2.32.1",

@@ -2,7 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type HelloOutput {
+  name: String!
+  bye: String!
+}
+
 type Query {
-  hello: String!
+  hello: HelloOutput!
   bye: String!
 }

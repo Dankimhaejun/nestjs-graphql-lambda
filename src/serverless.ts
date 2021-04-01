@@ -1,11 +1,11 @@
-import { ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import { Context, Handler } from 'aws-lambda';
-import { createServer, proxy } from 'aws-serverless-express';
-import express from 'express';
-import { Server } from 'http';
-import { AppModule } from './app.module';
+import { ValidationPipe } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { ExpressAdapter } from "@nestjs/platform-express";
+import { Context, Handler } from "aws-lambda";
+import { createServer, proxy } from "aws-serverless-express";
+import express from "express";
+import { Server } from "http";
+import { AppModule } from "./app.module";
 
 export async function bootstrap() {
   const expressApp = express();
@@ -28,5 +28,5 @@ export const handler: Handler = async (event: any, context: Context) => {
     cachedServer = await bootstrap();
   }
 
-  return proxy(cachedServer, event, context, 'PROMISE').promise;
+  return proxy(cachedServer, event, context, "PROMISE").promise;
 };
