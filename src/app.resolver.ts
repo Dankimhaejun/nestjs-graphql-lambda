@@ -1,30 +1,50 @@
+import { IsString } from "class-validator";
 import {
   Resolver,
   Query,
   Field,
   ObjectType,
-  ResolveProperty,
+  Parent,
+  InputType,
+  Args,
+  ResolveField,
 } from "@nestjs/graphql";
 
 @ObjectType()
-export class HelloOutput {
+export class App {
+  @IsString()
   @Field()
-  name: string;
+  name!: string;
 }
-@Resolver(() => HelloOutput)
+
+@InputType("input")
+export class HelloInput {
+  @IsString()
+  @Field({ nullable: true })
+  age?: string;
+}
+
+@Resolver(() => App)
 export class AppResolver {
-  @Query(() => HelloOutput)
-  async hello(_, __, context) {
+  @Query(() => App)
+  async app(_, __, ___) {
     // console.log(`context`, context);
     return { name: "hello" };
   }
 
-  @ResolveProperty(() => String)
-  async bye(HelloOutput, __, context) {
-    const { name } = HelloOutput;
+  @ResolveField(() => String)
+  async hello(
+    @Parent() root: App,
+    @Args("input") input: HelloInput,
+    _,
+  ): Promise<string> {
+    console.log(`root`, root);
+    const { name } = root;
+    const { age } = input;
     console.log(`name`, name);
-    console.log(`HelloOutput`, HelloOutput);
+    console.log(`age`, age);
+    console.log("root :>> ", root);
     // console.log(`context`, context);
-    return name;
+    return `Hello my name is ${name}, ${age}-years-old`;
   }
 }

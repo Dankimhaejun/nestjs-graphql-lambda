@@ -2,12 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type HelloOutput {
+type App {
   name: String!
-  bye: String!
+  hello(input: input!): String!
+}
+
+input input {
+  age: String
 }
 
 type Query {
-  hello: HelloOutput!
+  app: App!
   bye: String!
 }
