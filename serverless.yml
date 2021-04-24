@@ -13,12 +13,12 @@ plugins:
   - serverless-offline
 
 package:
-  exclude:
-    - .git/**
-    - src/**
-    - test/**
-    - nodemon.json
-    - README.md
+  patterns:
+    - "!.git/**"
+    - "!src/**"
+    - "!test/**"
+    - "!nodemon.json"
+    - "!README.md"
   excludeDevDependencies: true
 
 functions:
